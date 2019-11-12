@@ -1,0 +1,39 @@
+steps:
+  # Build the container image.
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build
+    args:
+      - 'build'
+      - '-t'
+      - 'eu.gcr.io/$PROJECT_ID/ruudniewtv-stream-website:$SHORT_SHA'
+      - '.'
+
+
+  # Push the image to Container Registry
+  # The PROJECT_ID and SHORT_SHA variables are automatically replaced by Cloud Build.
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Push
+    args:
+      - 'push'
+      - 'eu.gcr.io/$PROJECT_ID/ruudniewtv-stream-website:$SHORT_SHA'
+
+
+  # Deploy the image
+  # Namespace, if not default, has to be specified.
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - apply
+      - '-f'
+      - './k8s/ruudniewtv-stream-website-deployment.yaml'
+      - '--namespace'
+      - 1001factory
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west4-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=factory'
+
+  # Namespace, if not default, has to be specified.
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['set', 'image', 'deployment/ruudniewtv-stream-website', 'ruudniewtv-stream-website=eu.gcr.io/$PROJECT_ID/ruudniewtv-stream-website:$SHORT_SHA', '--namespace', '1001factory']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west4-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=factory'
