@@ -6,7 +6,7 @@
       </div>
       <div class="title-container text-center text-xl flex flex-wrap mt-12 justify-center">
         <div class="text-3xl w-full font-bold text-gray-800">Welcome</div>
-        <div class="text-xl w-full text-gray-700" style="max-width: 768px">
+        <div class="text-xl w-full text-gray-700 px-8" style="max-width: 768px">
           Welcome, random visitor! My name is Ruud, and I occasionally go live on Twitch to talk about tech. You can watch me live, right here. Below you can also find the <span style="color:#62a7db">past broadcasts</span>. Enjoy!
         </div>
       </div>
