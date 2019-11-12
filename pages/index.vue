@@ -22,31 +22,33 @@
           The untamed and uncut vods. Only a mad(wo)man would watch these
         </div>
         <div class="twitch-vods-subtitle-warning text-lg text-center" style="color:#62a7db">
-          Warning: not even feeling cute, and still I might delete these later 😉
+          Warning: not even feeling cute, and still I might delete later 😉
         </div>
-        <div class="twitch-vods-self my-12 flex flex-wrap lg:flex-no-wrap justify-between">
-          <div class="twitch-vod-video self-start border border-gray-300 bg-white text-gray-700 shadow-lg rounded-lg w-full w-1/3 mx-4 mb-4 lg:mb-0" v-for="vod in reversedVods">
-            <div class="video-title text-base font-bold py-4 px-5">
-              {{ vod.dateNice }}
-            </div>
-            <video width="480" height="360" controls class="w-full">
-              <source :src="vod.src" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <div class="flex">
-              <div class="video-date text-base px-5 pt-4 font-bold">
-                Date: {{ vod.date }}
+        <div class="twitch-vods-self mb-12 mt-6 flex flex-wrap">
+          <div class="twitch-vod-video self-start w-full lg:w-1/3 px-4 mb-4 lg:mb-0 " v-for="vod in reversedVods">
+            <div class="border border-gray-300 bg-white text-gray-700 shadow-lg rounded-lg mt-6">
+              <div class="video-title text-base font-bold py-4 px-5">
+                {{ vod.dateNice }}
               </div>
-              <div class="video-duration text-base px-5 pt-4 font-bold">
-                Duration: {{ vod.duration }}
+              <video width="480" height="360" controls class="w-full">
+                <source :src="vod.src" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="flex">
+                <div class="video-date text-base px-5 pt-4 font-bold">
+                  Date: {{ vod.date }}
+                </div>
+                <div class="video-duration text-base px-5 pt-4 font-bold">
+                  Duration: {{ vod.duration }}
+                </div>
               </div>
-            </div>
-            <div class="video-description text-base px-5 pt-2 text-justify">
-              {{ vod.description }}
-            </div>
-            <div class="video-tags flex flex-wrap pt-2 pb-4 px-5">
-              <div class="video-tag px-2 py-1 rounded text-sm mr-1 my-1" v-for="tag in vod.tags" style="background: #c5f7ff">
-                {{ tag }}
+              <div class="video-description text-base px-5 pt-2 text-justify">
+                {{ vod.description }}
+              </div>
+              <div class="video-tags flex flex-wrap pt-2 pb-4 px-5">
+                <div class="video-tag px-2 py-1 rounded text-sm mr-1 my-1" v-for="tag in vod.tags" style="background: #c5f7ff">
+                  {{ tag }}
+                </div>
               </div>
             </div>
           </div>
