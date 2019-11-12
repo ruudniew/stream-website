@@ -26,7 +26,7 @@ steps:
       - '-f'
       - './k8s/ruudniewtv-stream-website-deployment.yaml'
       - '--namespace'
-      - 1001factory
+      - dutchdelhicacy
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=europe-west4-a'
       - 'CLOUDSDK_CONTAINER_CLUSTER=factory'
