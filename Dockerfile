@@ -22,7 +22,7 @@ EXPOSE 3101:3101
 
 # update and install dependency
 RUN npm install --save
-RUN npm run build
+# RUN npm run build
 
 # start the app
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
