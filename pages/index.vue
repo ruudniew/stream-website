@@ -2,7 +2,7 @@
   <div class="ruudniew-container">
     <div class="container">
       <div class="logo-container flex w-full justify-center mt-6">
-        <img src="/ruudniew.png" class="p-2 w-48">
+        <img src="/ruudniew.png" class="p-2 w-48 h-56">
       </div>
       <div class="title-container text-center text-xl flex flex-wrap mt-12 justify-center">
         <div class="text-3xl w-full font-bold text-gray-800">Welcome</div>
