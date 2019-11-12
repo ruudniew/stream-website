@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ruudniewtv-stream-website
+  namespace: dutchdelhicacy
+  labels:
+    deployment-name: "ruudniewtv-stream-website"
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        deployment-name: "ruudniewtv-stream-website"
+    spec:
+      containers:
+        - image: eu.gcr.io/genuine-display-244917/ruudniewtv-stream-website:master
+          name: ruudniewtv-stream-website
+          ports:
+          - containerPort: 3101
+          resources: {}
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /ruudniewtv-stream-website/static
+              name: ruudniewtv-stream-website-pvc
+      restartPolicy: Always
+      volumes:
+        - name: ruudniewtv-stream-website-pvc
+          persistentVolumeClaim:
+            claimName: ruudniewtv-stream-website-pvc
+      imagePullSecrets:
+        - name: gcrst
+status: {}

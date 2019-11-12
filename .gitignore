@@ -89,8 +89,5 @@ sw.*
 # Vim swap files
 *.swp
 
-# Kubernetes files
-k8s
-
 # vods
 static/*.mp4

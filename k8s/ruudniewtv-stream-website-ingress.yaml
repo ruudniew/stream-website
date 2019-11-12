@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  name: ruudniewtv-stream-website
+  namespace: dutchdelhicacy
+spec:
+  rules:
+    - host: ruudniew.com
+      http:
+        paths:
+          - backend:
+              serviceName: "ruudniewtv-stream-website"
+              servicePort: 3101
+            path: "/"
+status:
+  loadBalancer: {}
