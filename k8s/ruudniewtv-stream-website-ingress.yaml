@@ -14,5 +14,12 @@ spec:
               serviceName: "ruudniewtv-stream-website"
               servicePort: 3101
             path: "/"
+    - host: www.ruudniew.com
+      http:
+        paths:
+          - backend:
+              serviceName: "ruudniewtv-stream-website"
+              servicePort: 3101
+            path: "/"
 status:
   loadBalancer: {}
