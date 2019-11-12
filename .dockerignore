@@ -1,0 +1,5 @@
+.nuxt
+_nuxt
+.idea
+node_modules
+k8s
