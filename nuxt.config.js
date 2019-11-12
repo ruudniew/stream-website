@@ -13,7 +13,10 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon-ruudniew.ico' }
-    ]
+    ],
+    script: [
+      { src: 'https://embed.twitch.tv/embed/v1.js' }
+    ],
   },
   /*
   ** Customize the progress-bar color
@@ -59,10 +62,10 @@ module.exports = {
     extend (config, ctx) {
     }
   }
-  // ,
-  //
-  // server: {
-  //   "host": "127.0.0.1",
-  //   "port": "3101"
-  // }
+  ,
+
+  server: {
+    "host": "127.0.0.1",
+    "port": "3101"
+  }
 }

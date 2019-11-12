@@ -5,14 +5,14 @@
         <img src="/ruudniew.png" class="p-2 w-48">
       </div>
       <div class="title-container text-center text-xl flex flex-wrap mt-12 justify-center">
-       <div class="text-3xl w-full font-bold text-gray-800">Welcome</div>
+        <div class="text-3xl w-full font-bold text-gray-800">Welcome</div>
         <div class="text-xl w-full text-gray-700" style="max-width: 768px">
           Welcome, random visitor! My name is Ruud, and I occasionally go live on Twitch to talk about tech. You can watch me live, right here. Below you can also find the <span style="color:#62a7db">past broadcasts</span>. Enjoy!
-       </div>
+        </div>
       </div>
       <div class="twitch-embed-container px-12 mt-6">
-        <div id="twitch-embed" class="w-full"></div>
-        <script src="https://embed.twitch.tv/embed/v1.js"></script>
+        <div id="twitch-embed" class="w-full flex">
+        </div>
       </div>
       <div class="twitch-vods-container px-8 mt-24">
         <div class="twitch-vods-title text-3xl font-bold text-center text-gray-800">
@@ -25,7 +25,7 @@
           Warning: not even feeling cute, and still I might delete these later 😉
         </div>
         <div class="twitch-vods-self my-12 flex flex-wrap lg:flex-no-wrap justify-between">
-          <div class="twitch-vod-video self-start border border-gray-300 bg-white text-gray-700 shadow-lg rounded-lg w-full w-1/3 mx-4 mb-4 lg:mb-0" v-for="vod in vods.reverse()">
+          <div class="twitch-vod-video self-start border border-gray-300 bg-white text-gray-700 shadow-lg rounded-lg w-full w-1/3 mx-4 mb-4 lg:mb-0" v-for="vod in reversedVods">
             <div class="video-title text-base font-bold py-4 px-5">
               {{ vod.dateNice }}
             </div>
@@ -59,6 +59,23 @@
 <script>
   export default {
     name: 'ruudniew-stream-website',
+
+    computed: {
+      reversedVods () {
+        return this.vods.reverse()
+      }
+    },
+
+    mounted () {
+      this.$nextTick(() => {
+        new Twitch.Embed("twitch-embed", {
+          width: 1366,
+          height: 500,
+          channel: "ruudniew"
+        });
+      })
+    },
+
 
     data () {
       return {
@@ -95,15 +112,6 @@
     },
 
 
-    mounted () {
-      this.$nextTick(() => {
-        new Twitch.Embed("twitch-embed", {
-          width: 1366,
-          height: 500,
-          channel: "ruudniew"
-        });
-      })
-    }
   }
 </script>
 
