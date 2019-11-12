@@ -19,6 +19,5 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
-    "@nuxtjs/tailwindcss": "^1.0.0"
   }
 }
