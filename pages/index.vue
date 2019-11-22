@@ -4,22 +4,73 @@
       <div class="logo-container flex w-full justify-center mt-6">
         <img src="/ruudniew.png" class="p-2 w-48 h-56">
       </div>
-      <div class="title-container text-center text-xl flex flex-wrap mt-12 justify-center">
-        <div class="text-3xl w-full font-bold text-gray-800">Welcome</div>
+      <div class="title-container text-center text-xl flex flex-wrap mt-6 justify-center">
         <div class="text-xl w-full text-gray-700 px-8" style="max-width: 768px">
-          Welcome, random visitor! My name is Ruud, and I occasionally go live on Twitch to talk about tech. You can watch me live, right here. Below you can also find the <span style="color:#62a7db">past broadcasts</span>. Enjoy!
+          Welcome, random visitor! My name is Ruud, and I occasionally go live on Twitch to share my love for tech. You can watch me live, right here. Below you'll find an explanation of <a style="color:#62a7db" class="underline" href="#explanation">how the stream works</a>, as well as the <a style="color:#62a7db" class="underline" href="#archive">past broadcasts</a>. Enjoy!
         </div>
       </div>
-      <div class="twitch-embed-container px-12 mt-6">
+      <div class="twitch-embed-container px-8 mt-20 flex flex-wrap justify-center" >
+        <div class="twitch-stream-title text-3xl font-bold text-center text-gray-800" style="max-width: 768px">
+          Livestream
+        </div>
+        <div class="twitch-stream-subtitle text-xl text-gray-700 mt-2 mb-4 w-full flex flex-wrap justify-center">
+          <div style="max-width: 768px">
+            <div><span class="font-bold">Current topic</span>: <a href="/t/gerrymandering" style="color:#62a7db" class="underline">gerrymandering</a> - can we programmatically divide the population of a US state in proportional districts? <a href="/t/gerrymandering" style="color:#62a7db" class="underline">Watch a short video</a> (2:30 minutes) explaining the topic, what it has to do with tech and why it's relevant for you.</div>
+            <div class="mt-2"><span class="font-bold">Stage: </span> research 75/100% - <a href="#explanation" style="color:#62a7db" class="underline">find out more about stages</a></div>
+          </div>
+        </div>
         <div id="twitch-embed" class="w-full flex">
         </div>
       </div>
-      <div class="twitch-vods-container px-8 mt-24">
-        <div class="twitch-vods-title text-3xl font-bold text-center text-gray-800">
-          Past broadcasts
+      <div id="archive" class="px-8 mt-24">
+        <div class="archive-title text-3xl font-bold text-center text-gray-800">
+          Topic archive
         </div>
         <div class="twitch-vods-subtitle text-xl text-italic text-center text-gray-700 mt-2">
-          The untamed and uncut vods. Only a mad(wo)man would watch these
+          The vods and videos around topics ranging from chatbots to gerrymandering
+        </div>
+        <div class="twitch-vods-self mb-12 mt-6 flex flex-wrap">
+          <div class="twitch-vod-video self-start w-full lg:w-1/3 px-4 mb-4 lg:mb-0 " v-for="topic in reversedTopics">
+            <div class="border border-gray-300 bg-white text-gray-700 shadow-lg rounded-lg mt-6">
+              <div class="video-title text-base font-bold py-4 px-5">
+                {{ topic.title }}
+              </div>
+              <div class="video-container relative">
+                <video width="480" height="360" controls :class="'w-full ' + (topic.video === '' ? 'invisible' : '')">
+                  <source :src="topic.video" type="video/mp4" class="z-40 relative">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10 px-12 py-4 text-center italic"><div>This topic is still ongoing. Presentation video will appear here when available</div></div>
+              </div>
+
+              <div class="flex flex-wrap">
+                <div class="video-date text-base px-5 pt-4 w-full">
+                  <span class="font-bold">Date:</span> {{ topic.dateStart }} - {{ topic.dateEnd}}
+                </div>
+                <div class="text-base px-5 pt-1 w-full" v-if="topic.stage !== ''">
+                  <span class="font-bold">Stage:</span> {{ topic.stage }}. <a class="cursor-pointer underline" style="color:#62a7db" href="#explanation">Learn more</a> about topic stages
+                </div>
+              </div>
+              <div class="video-description text-base px-5 pt-4 text-justify" v-html="topic.question"></div>
+              <a :href="topic.readMore" style="background-color:#62a7db" class="mt-4 mb-2 mx-5 px-3 py-2 inline-block rounded shadow text-white font-bold text-sm hover:shadow-lg">
+                Go deeper (read more)
+              </a>
+              <div class="video-tags flex flex-wrap pt-2 pb-4 px-5">
+                <div class="video-tag px-2 py-1 rounded text-sm mr-1 my-1" v-for="tag in topic.tags" style="background: #c5f7ff">
+                  {{ tag }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="twitch-vods-container px-8 mt-24">
+        <div class="twitch-vods-title text-3xl font-bold text-center text-gray-800">
+          First broadcasts
+        </div>
+        <div class="twitch-vods-subtitle text-xl text-italic text-center text-gray-700 mt-2">
+          The untamed and uncut vods of the very first broadcasts. Only a mad(wo)man would watch these
         </div>
         <div class="twitch-vods-subtitle-warning text-lg text-center" style="color:#62a7db">
           Warning: not even feeling cute, and still I might delete later 😉
@@ -65,6 +116,10 @@
     computed: {
       reversedVods () {
         return this.vods.reverse()
+      },
+
+      reversedTopics () {
+        return this.topics.reverse()
       }
     },
 
@@ -81,13 +136,25 @@
 
     data () {
       return {
+        topics: [
+          {
+            title: 'Gerrymandering',
+            video: '',
+            readMore: '/t/gerrymandering',
+            dateStart: '2019/11/22',
+            dateEnd: 'now',
+            question: 'Can we programmatically divide the population of a state in proportional districts?',
+            stage: 'Research - 75/100%'
+          }
+        ],
+
         vods: [
           {
             title: '[First Stream | Streamception | Dev. chatbot] Build the stream with me, live on stream',
             date: '2019/11/06',
             dateNice: 'November 6th, 2019',
             duration: '1:39h',
-            src: '/vod-1.mp4',
+            src: 'https://ruudniew.com/vod-1.mp4',
             description: 'The first stream! Building a Twitch chatbot from scratch. Figuring out how Twitch works.',
             tags: ['First stream', 'Streamception', 'Dev', 'Chatbot']
           },
@@ -96,7 +163,7 @@
             date: '2019/11/08',
             dateNice: 'November 8th, 2019',
             duration: '2:43h',
-            src: '/vod-2.mp4',
+            src: 'https://ruudniew.com/vod-2.mp4',
             description: 'Expanding the Twitch chatbot and building a stream overlay from scratch.',
             tags: ['Second Stream', 'Streamception', 'Dev', 'Chatbot', 'Overlay']
           },
@@ -105,7 +172,7 @@
             date: '2019/11/11',
             dateNice: 'November 11th, 2019',
             duration: '2:42h',
-            src: '/vod-3.mp4',
+            src: 'https://ruudniew.com/vod-3.mp4',
             description: 'Finishing up the chatbot and the stream overlay. Finding music and gifs for events. Start of the ruudniew.com website.',
             tags: ['Third Stream', 'Streamception', '!wtf','Dev', 'Chatbot', 'Overlay', 'Website']
           },
@@ -114,7 +181,7 @@
             date: '2019/11/22',
             dateNice: 'November 12th, 2019',
             duration: '1:58h',
-            src: '/vod-4.mp4',
+            src: 'https://ruudniew.com/vod-4.mp4',
             description: 'Summarizing the book 1984, looking into the dystopian predictions George Orwell made and matching them to our reality in 2019. Did Trump change his vocabulary to newspeak on purpose, or is he just mentally declining?',
             tags: ['Fourth stream', '1984', '2019', '!wtf', 'George Orwell', 'Big Brother', 'Donald Trump']
           }
