@@ -108,6 +108,15 @@
             src: '/vod-3.mp4',
             description: 'Finishing up the chatbot and the stream overlay. Finding music and gifs for events. Start of the ruudniew.com website.',
             tags: ['Third Stream', 'Streamception', '!wtf','Dev', 'Chatbot', 'Overlay', 'Website']
+          },
+          {
+            title: '[1984 in 2019] Do we live in an Orwellian society?',
+            date: '2019/11/22',
+            dateNice: 'November 12th, 2019',
+            duration: '1:58h',
+            src: '/vod-4.mp4',
+            description: 'Summarizing the book 1984, looking into the dystopian predictions George Orwell made and matching them to our reality in 2019. Did Trump change his vocabulary to newspeak on purpose, or is he just mentally declining?',
+            tags: ['Fourth stream', '1984', '2019', '!wtf', 'George Orwell', 'Big Brother', 'Donald Trump']
           }
         ]
       }
