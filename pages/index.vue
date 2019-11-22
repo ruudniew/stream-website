@@ -13,13 +13,34 @@
         <div class="twitch-stream-title text-3xl font-bold text-center text-gray-800" style="max-width: 768px">
           Livestream
         </div>
-        <div class="twitch-stream-subtitle text-xl text-gray-700 mt-2 mb-4 w-full flex flex-wrap justify-center">
+        <div class="twitch-stream-subtitle text-xl text-gray-700 mt-2 mb-6 w-full flex flex-wrap justify-center">
           <div style="max-width: 768px">
-            <div><span class="font-bold">Current topic</span>: <a href="/t/gerrymandering" style="color:#62a7db" class="underline">gerrymandering</a> - can we programmatically divide the population of a US state in proportional districts? <a href="/t/gerrymandering" style="color:#62a7db" class="underline">Watch a short video</a> (2:30 minutes) explaining the topic, what it has to do with tech and why it's relevant for you.</div>
+            <div><span class="font-bold">Current topic</span>: <a href="/t/gerrymandering" style="color:#62a7db" class="underline">gerrymandering</a> - can we make a program that creates fair voting-districts and make gerrymandering impossible? <a href="/t/gerrymandering" style="color:#62a7db" class="underline">Watch a short video</a> (2:30 minutes) explaining the topic, what it has to do with tech and why it's relevant for you.</div>
             <div class="mt-2"><span class="font-bold">Stage: </span> research 75/100% - <a href="#explanation" style="color:#62a7db" class="underline">find out more about stages</a></div>
+            <div class="mt-2"><span class="font-bold">Currently working on: </span> preparing the population datafiles of Georgia (state in the US), so we can use them to programmatically create fair voting districts</div>
           </div>
         </div>
         <div id="twitch-embed" class="w-full flex">
+        </div>
+      </div>
+      <div id="explanation" class="px-8 mt-24">
+        <div class="archive-title text-3xl font-bold text-center text-gray-800">
+          The stream explained
+        </div>
+        <div class="twitch-vods-subtitle text-xl flex justify-center flex-wrap text-gray-700 mt-2">
+          <div class="text-center w-full" style="max-width: 768px">
+              When live-streaming programming or other technical stuff, it's often difficult to follow along, especially for people that just joined the channel. To make the stream easier to understand, the topics will be divided into different stages
+          </div>
+          <div class="text-left w-full mt-4" style="max-width: 768px">
+            <div class="mt-4"><span class="font-bold">1. Introduction (pre-recorded video)</span></div>
+            <div class="">A short introduction video (around 2:30 minutes) of the topic that I'm going to stream about.</div>
+            <div class="mt-4"><span class="font-bold">2. Research (live)</span></div>
+            <div class="">The research stage is basically nothing more than tinkering around and preparing the next stage: the grind</div>
+            <div class="mt-4"><span class="font-bold">3. The grind (live)</span></div>
+            <div class="">The grind stage is where the actual building of solutions happens. </div>
+            <div class="mt-4"><span class="font-bold">4. The presentation (live)</span></div>
+            <div class="">A quick recap where all other stages are summarized. Hopefully this will be the most fun to watch!</div>
+          </div>
         </div>
       </div>
       <div id="archive" class="px-8 mt-24">
@@ -40,7 +61,7 @@
                   <source :src="topic.video" type="video/mp4" class="z-40 relative">
                   Your browser does not support the video tag.
                 </video>
-                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10 px-12 py-4 text-center italic"><div>This topic is still ongoing. Presentation video will appear here when available</div></div>
+                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10 px-12 py-4 text-center italic"><div>This topic is still ongoing. Presentation video will appear here when available. Watch the <a :href="topic.readMore" class="underline font-bold" style="color:#62a7db">introduction video here</a></div></div>
               </div>
 
               <div class="flex flex-wrap">
