@@ -15,7 +15,8 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon-ruudniew.ico' }
     ],
     script: [
-      { src: 'https://embed.twitch.tv/embed/v1.js' }
+      { src: 'https://embed.twitch.tv/embed/v1.js' },
+      { src: '/mtm.js' }
     ],
   },
   /*
@@ -62,10 +63,10 @@ module.exports = {
     extend (config, ctx) {
     }
   }
-  // ,
-  //
-  // server: {
-  //   "host": "127.0.0.1",
-  //   "port": "3101"
-  // }
+  ,
+
+  server: {
+    "host": "127.0.0.1",
+    "port": "3101"
+  }
 }
