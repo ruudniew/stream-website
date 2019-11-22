@@ -20,8 +20,7 @@
             <div class="mt-2"><span class="font-bold">Currently working on: </span> preparing the population datafiles of Georgia (state in the US), so we can use them to programmatically create fair voting districts</div>
           </div>
         </div>
-        <div id="twitch-embed" class="w-full flex">
-        </div>
+        <iframe src="https://embed.restream.io/player/index.html?token=65f6807be2d64174ca39356d7a22aed8" width="960" height="576" frameborder="0" allowfullscreen class="rounded-lg shadow-lg"></iframe>
       </div>
       <div id="explanation" class="px-8 mt-24">
         <div class="archive-title text-3xl font-bold text-center text-gray-800">
@@ -145,13 +144,13 @@
     },
 
     mounted () {
-      this.$nextTick(() => {
-        new Twitch.Embed("twitch-embed", {
-          width: 1366,
-          height: 500,
-          channel: "ruudniew"
-        });
-      })
+      // this.$nextTick(() => {
+      //   new Twitch.Embed("twitch-embed", {
+      //     width: 1366,
+      //     height: 500,
+      //     channel: "ruudniew"
+      //   });
+      // })
     },
 
 
