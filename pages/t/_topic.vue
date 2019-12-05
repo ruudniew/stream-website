@@ -20,21 +20,17 @@
           </div>
         </div>
         <div class="subject-title text-3xl mt-12 font-bold text-center text-gray-800" style="max-width: 768px">
-          Introduction (2:30 minutes)
+          Introduction (0:56 min)
         </div>
-        <div class="w-full flex justify-center mt-2" v-if="subject.video !== ''">
+        <div class="w-full flex justify-center mt-2">
           <div class="video-container relative" style="max-width: 768px;">
             <video width="768" height="520" controls class="w-full rounded shadow-lg">
-              <source :src="subject.video" type="video/mp4" class="z-40 relative">
+              <source src="https://ruudniew.com/soundboard.mp4" type="video/mp4" class="z-40 relative">
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
-        <div class="w-full flex justify-center mt-2" v-if="subject.video === ''">
-          <div class="video-container relative" style="max-width: 768px;">
-            <div class="text-gray-700 text-xl italic">Introduction video coming soon</div>
-          </div>
-        </div>
+
         <div v-for="stage in subject.stages" class="">
           <div class="subject-title text-3xl font-bold text-center text-gray-800 mt-12" style="max-width: 768px">
             {{ stage.title }} summary

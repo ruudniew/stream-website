@@ -22,7 +22,7 @@
         -->
         <div class="stream-subtitle text-xl text-gray-700 mt-2 mb-6 w-full flex flex-wrap justify-center">
           <div style="max-width: 768px">
-            <div><span class="font-bold">Current topic</span>: <a href="/t/soundboard" style="color:#62a7db" class="underline">interactive soundboard</a> - It's a struggle to find an interactive soundboard online. Let's create one ourselves! <a href="/t/soundboard" style="color:#62a7db" class="underline">Watch a short video</a> (2:30 minutes) explaining what we're doing</div>
+            <div><span class="font-bold">Current topic</span>: <a href="/t/soundboard" style="color:#62a7db" class="underline">interactive soundboard</a> - It's a struggle to find an interactive soundboard online. Let's create one ourselves! <a href="/t/soundboard" style="color:#62a7db" class="underline">Watch a short video</a> (0:56 min) explaining what we're doing</div>
           </div>
         </div>
         <iframe title="ruudniew's player frame" i18n-title="channel#ShareDialog:playerEmbedFrame|Embed player Frame copied from share dialog" allowfullscreen="true" src="https://mixer.com/embed/player/ruudniew" width="768" height="420"> </iframe>
