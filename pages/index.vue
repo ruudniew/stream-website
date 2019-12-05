@@ -6,22 +6,28 @@
       </div>
       <div class="title-container text-center text-xl flex flex-wrap mt-6 justify-center">
         <div class="text-xl w-full text-gray-700 px-8" style="max-width: 768px">
-          Welcome, random visitor! My name is Ruud, and I occasionally go live on Twitch to share my love for tech. You can watch me live, right here. Below you'll find an explanation of <a style="color:#62a7db" class="underline" href="#explanation">how the stream works</a>, as well as the <a style="color:#62a7db" class="underline" href="#archive">past broadcasts</a>. Enjoy!
+          Welcome, random visitor! My name is Ruud, and I occasionally go live to share my love for tech. You can watch me live, right here. Below you'll find an explanation of <a style="color:#62a7db" class="underline" href="#explanation">how the stream works</a>, as well as the <a style="color:#62a7db" class="underline" href="#archive">past broadcasts</a>. Enjoy!
         </div>
       </div>
       <div class="twitch-embed-container px-8 mt-20 flex flex-wrap justify-center" >
-        <div class="twitch-stream-title text-3xl font-bold text-center text-gray-800" style="max-width: 768px">
+        <div class="stream-title text-3xl font-bold text-center text-gray-800" style="max-width: 768px">
           Livestream
         </div>
-        <div class="twitch-stream-subtitle text-xl text-gray-700 mt-2 mb-6 w-full flex flex-wrap justify-center">
+        <!--
+        <div class="stream-subtitle text-xl text-gray-700 mt-2 mb-6 w-full flex flex-wrap justify-center">
           <div style="max-width: 768px">
             <div><span class="font-bold">Current topic</span>: <a href="/t/gerrymandering" style="color:#62a7db" class="underline">gerrymandering</a> - can we make a program that creates fair voting-districts and make gerrymandering impossible? <a href="/t/gerrymandering" style="color:#62a7db" class="underline">Watch a short video</a> (2:30 minutes) explaining the topic, what it has to do with tech and why it's relevant for you.</div>
-            <div class="mt-2"><span class="font-bold">Stage: </span> research 75/100% - <a href="#explanation" style="color:#62a7db" class="underline">find out more about stages</a></div>
-            <div class="mt-2"><span class="font-bold">Currently working on: </span> preparing the population datafiles of Georgia (state in the US), so we can use them to programmatically create fair voting districts</div>
           </div>
         </div>
-        <iframe src="https://embed.restream.io/player/index.html?token=65f6807be2d64174ca39356d7a22aed8" width="960" height="576" frameborder="0" allowfullscreen class="rounded-lg shadow-lg"></iframe>
+        -->
+        <div class="stream-subtitle text-xl text-gray-700 mt-2 mb-6 w-full flex flex-wrap justify-center">
+          <div style="max-width: 768px">
+            <div><span class="font-bold">Current topic</span>: <a href="/t/soundboard" style="color:#62a7db" class="underline">interactive soundboard</a> - It's a struggle to find an interactive soundboard online. Let's create one ourselves! <a href="/t/soundboard" style="color:#62a7db" class="underline">Watch a short video</a> (2:30 minutes) explaining what we're doing</div>
+          </div>
+        </div>
+        <iframe title="ruudniew's player frame" i18n-title="channel#ShareDialog:playerEmbedFrame|Embed player Frame copied from share dialog" allowfullscreen="true" src="https://mixer.com/embed/player/ruudniew" width="768" height="420"> </iframe>
       </div>
+      <!--
       <div id="explanation" class="px-8 mt-24">
         <div class="archive-title text-3xl font-bold text-center text-gray-800">
           The stream explained
@@ -42,6 +48,7 @@
           </div>
         </div>
       </div>
+      -->
       <div id="archive" class="px-8 mt-24">
         <div class="archive-title text-3xl font-bold text-center text-gray-800">
           Topic archive
@@ -65,10 +72,10 @@
 
               <div class="flex flex-wrap">
                 <div class="video-date text-base px-5 pt-4 w-full">
-                  <span class="font-bold">Date:</span> {{ topic.dateStart }} - {{ topic.dateEnd}}
+                  <span class="font-bold">Date:</span> {{ topic.dateStart }} <span v-if="topic.dateEnd !== ''">-</span> {{ topic.dateEnd}}
                 </div>
                 <div class="text-base px-5 pt-1 w-full" v-if="topic.stage !== ''">
-                  <span class="font-bold">Stage:</span> {{ topic.stage }}. <a class="cursor-pointer underline" style="color:#62a7db" href="#explanation">Learn more</a> about topic stages
+                  <span class="font-bold">Stage:</span> {{ topic.stage }} <!-- <a class="cursor-pointer underline" style="color:#62a7db" href="#explanation">Learn more</a> about topic stages -->
                 </div>
               </div>
               <div class="video-description text-base px-5 pt-4 text-justify" v-html="topic.question"></div>
@@ -158,13 +165,23 @@
       return {
         topics: [
           {
+            title: 'Interactive Soundboard',
+            video: '/t/soundboard.mp4',
+            readMore: '/t/soundboard',
+            dateStart: '2019/12/05',
+            dateEnd: '',
+            question: 'Can we build an interactive soundboard that can be controlled by Mixer and Twitch users?',
+            stage: 'Live'
+          },
+
+          {
             title: 'Gerrymandering',
             video: '',
             readMore: '/t/gerrymandering',
-            dateStart: '2019/11/22',
-            dateEnd: 'now',
+            dateStart: '2019/12/11',
+            dateEnd: '',
             question: 'Can we programmatically divide the population of a state in proportional districts?',
-            stage: 'Research - 75/100%'
+            stage: 'Planned'
           }
         ],
 
