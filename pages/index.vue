@@ -175,7 +175,7 @@
           },
           {
             title: 'Interactive Soundboard',
-            video: 'soundboard.mp4',
+            video: '/soundboard.mp4',
             readMore: '/t/soundboard',
             dateStart: '2019/12/05',
             dateEnd: '',
