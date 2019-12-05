@@ -108,8 +108,8 @@
               <div class="video-title text-base font-bold py-4 px-5">
                 {{ vod.dateNice }}
               </div>
-              <video width="480" height="360" controls class="w-full">
-                <source :src="vod.src" type="video/mp4">
+              <video width="480" height="360" controls class="w-full" preload="metadata">
+                <source :src="vod.src" type="video/mp4" >
                 Your browser does not support the video tag.
               </video>
               <div class="flex">
