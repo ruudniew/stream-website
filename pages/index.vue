@@ -165,16 +165,6 @@
       return {
         topics: [
           {
-            title: 'Interactive Soundboard',
-            video: '/t/soundboard.mp4',
-            readMore: '/t/soundboard',
-            dateStart: '2019/12/05',
-            dateEnd: '',
-            question: 'Can we build an interactive soundboard that can be controlled by Mixer and Twitch users?',
-            stage: 'Live'
-          },
-
-          {
             title: 'Gerrymandering',
             video: '',
             readMore: '/t/gerrymandering',
@@ -182,7 +172,16 @@
             dateEnd: '',
             question: 'Can we programmatically divide the population of a state in proportional districts?',
             stage: 'Planned'
-          }
+          },
+          {
+            title: 'Interactive Soundboard',
+            video: 'soundboard.mp4',
+            readMore: '/t/soundboard',
+            dateStart: '2019/12/05',
+            dateEnd: '',
+            question: 'Can we build an interactive soundboard that can be controlled by Mixer and Twitch users?',
+            stage: 'Live'
+          },
         ],
 
         vods: [
