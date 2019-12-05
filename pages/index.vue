@@ -67,7 +67,7 @@
                   <source :src="topic.video" type="video/mp4" class="z-40 relative">
                   Your browser does not support the video tag.
                 </video>
-                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10 px-12 py-4 text-center italic" v-if="topic.video !== ''"><div>This topic is still ongoing. Presentation video will appear here when available. Watch the <a :href="topic.readMore" class="underline font-bold" style="color:#62a7db">introduction video here</a></div></div>
+                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10 px-12 py-4 text-center italic" v-if="topic.video === ''"><div>This topic is still ongoing. Presentation video will appear here when available. Watch the <a :href="topic.readMore" class="underline font-bold" style="color:#62a7db">introduction video here</a></div></div>
               </div>
 
               <div class="flex flex-wrap">
